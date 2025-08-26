@@ -145,3 +145,42 @@ MIT
 
 * [codefetch](https://github.com/regenrek/codefetch) - Turn code into Markdown for LLMs with one simple terminal command
 * [instructa](https://github.com/orgs/instructa/repositories) - Instructa Projects
+
+For non-Vite projects (e.g., Webpack, Vue CLI), you'll need to manually configure a proxy.
+
+#### Vue 2 (with Vue CLI)
+
+1.  **Install the Vue 2 package:**
+    ```bash
+    npm install --save-dev @browser-echo/vue2
+    ```
+
+2.  **Configure `vue.config.js`:**
+    Create a `vue.config.js` file in your project root and set up a development server proxy to forward requests to the MCP server. This is the recommended approach to avoid CORS issues.
+
+    ```javascript
+    // vue.config.js
+    module.exports = {
+      devServer: {
+        proxy: {
+          // This should match the default route used by the plugin
+          '/__client-logs': {
+            // Point this to the running MCP server
+            target: 'http://127.0.0.1:5179',
+            changeOrigin: true,
+          },
+        },
+      },
+    };
+    ```
+
+3.  **Install the plugin in `main.js`:**
+    ```javascript
+    // src/main.js
+    import Vue from 'vue';
+    import { createBrowserEchoVue2Plugin } from '@browser-echo/vue2';
+
+    if (process.env.NODE_ENV === 'development') {
+      Vue.use(createBrowserEchoVue2Plugin());
+    }
+    ```
