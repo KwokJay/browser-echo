@@ -1,0 +1,40 @@
+{
+  "name": "@browser-echo/vue2",
+  "version": "1.0.1",
+  "type": "module",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/instructa/browser-echo.git",
+    "directory": "packages/vue2"
+  },
+  "author": {
+    "name": "Kevin Kern",
+    "url": "https://github.com/regenrek"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.mjs"
+    }
+  },
+  "peerDependencies": {
+    "vue": "^2.7.0"
+  },
+  "dependencies": {
+    "@browser-echo/core": "^1.0.1"
+  },
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild -w",
+    "clean": "rimraf dist || true"
+  },
+  "devDependencies": {
+    "unbuild": "^2.0.0",
+    "typescript": "^5.5.4",
+    "vue": "^2.7.16"
+  }
+}
