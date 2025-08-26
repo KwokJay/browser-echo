@@ -34,6 +34,14 @@ First, set up Browser Echo for your framework:
 
 **📖 [Set up Browser Echo MCP Server](packages/mcp/README.md)** for AI assistant integration
 
+> 快速启动（HTTP 模式）：
+>
+> ```bash
+> npx browser-echo-mcp-tools --http
+> ```
+>
+> 兼容别名：也可使用 `npx browser-echo-mcp-tools`（等价于先前的 `@browser-echo/mcp`）。
+
 ## Browser Echo Core (Terminal only)
 
 ![Browser Echo](public/banner.png)

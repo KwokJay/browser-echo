@@ -35,7 +35,7 @@ Once your framework is set up and forwarding logs, install the Browser Echo MCP 
   "mcpServers": {
     "browser-echo": {
       "command": "npx",
-      "args": ["@browser-echo/mcp"]
+      "args": ["browser-echo-mcp-tools"]
     }
   }
 }
@@ -54,7 +54,7 @@ Add to your `.cursor/mcp.json`:
   "mcpServers": {
     "browser-echo": {
       "command": "npx",
-      "args": ["@browser-echo/mcp"]
+      "args": ["browser-echo-mcp-tools"]
     }
   }
 }
@@ -65,7 +65,7 @@ Add to your `.cursor/mcp.json`:
 Add to your Claude Desktop MCP config:
 
 ```json
-claude mcp add browser-echo-mcp npx @browser-echo/mcp
+claude mcp add browser-echo-mcp npx browser-echo-mcp-tools
 ```
 
 
@@ -94,7 +94,7 @@ Follow the MCP Servers [documentation](https://opencode.ai/docs/mcp-servers/). F
       "type": "local",
       "command": [
         "npx",
-        "@browser-echo/mcp"
+        "browser-echo-mcp-tools"
       ],
       "enabled": true
     }
@@ -115,7 +115,7 @@ Follow the MCP install [guide](https://code.visualstudio.com/docs/copilot/chat/m
 
 ```bash
 # For VS Code
-code --add-mcp '{"name":"browser-echo","command":"npx","args":["@browser-echo/mcp@latest"]}'
+code --add-mcp '{"name":"browser-echo","command":"npx","args":["browser-echo-mcp-tools@latest"]}'
 ```
 
 After installation, the Browser Echo MCP server will be available for use with your GitHub Copilot agent in VS Code.
@@ -135,10 +135,10 @@ If you prefer HTTP transport (useful for web-based AI tools):
 
 ```bash
 # Start with full HTTP transport
-npx @browser-echo/mcp --http
+npx browser-echo-mcp-tools --http
 
 # Custom host/port
-npx @browser-echo/mcp --http --host 127.0.0.1 --port 5179
+npx browser-echo-mcp-tools --http --host 127.0.0.1 --port 5179
 ```
 
 Point your MCP client to: `http://127.0.0.1:5179/mcp`
@@ -245,14 +245,14 @@ By default, the server uses **stdio transport** (best for local AI assistants). 
 
 ```bash
 # Default: stdio transport + HTTP ingest endpoint
-npx @browser-echo/mcp
+npx browser-echo-mcp-tools
 
 # Force HTTP transport
-npx @browser-echo/mcp --http
+npx browser-echo-mcp-tools --http
 
 # Auto-switch to HTTP (when non-default options provided)
-npx @browser-echo/mcp --port 8080        # → HTTP mode
-npx @browser-echo/mcp --host 0.0.0.0     # → HTTP mode
+npx browser-echo-mcp-tools --port 8080        # → HTTP mode
+npx browser-echo-mcp-tools --host 0.0.0.0     # → HTTP mode
 ```
 
 ### CLI Flags
@@ -281,8 +281,8 @@ Best for local development with AI assistants:
 {
   "mcpServers": {
     "browser-echo": {
-      "command": "node",
-      "args": ["packages/mcp/bin/cli.mjs"]
+      "command": "npx",
+      "args": ["browser-echo-mcp-tools"]
     }
   }
 }
@@ -303,8 +303,8 @@ For web-based AI tools or when you need HTTP MCP access:
 {
   "mcpServers": {
     "browser-echo": {
-      "command": "node", 
-      "args": ["packages/mcp/bin/cli.mjs", "--http"]
+      "command": "npx", 
+      "args": ["browser-echo-mcp-tools", "--http"]
     }
   }
 }
